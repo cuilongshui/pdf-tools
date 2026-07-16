@@ -6,6 +6,7 @@
 - 压缩图片型 PDF，比如扫描件、画册、合同扫描版
 - 批量处理文件夹里的 PDF
 - Windows 下拖拽文件到 `.cmd` 脚本运行
+- Windows 下双击打开图形界面，不用命令行
 
 ## 环境要求
 
@@ -113,6 +114,35 @@ npm.cmd install
 压缩 PDF：
 
 把 PDF 文件拖到 `compress-pdf.cmd` 上，会按默认图片压缩参数生成 `原文件名.compressed.pdf`。
+
+## Windows 图形界面
+
+双击图形界面入口即可使用，不需要手动输入命令：
+
+- `merge-pdf-gui.vbs`：打开 PDF 合并窗口
+- `compress-pdf-gui.vbs`：打开 PDF 压缩窗口
+
+### 合并界面
+
+- 点击“添加文件”选择多个 PDF
+- 可用“上移”“下移”调整合并顺序
+- 点击“选择输出”指定生成文件
+- 点击“开始合并”执行
+
+### 压缩界面
+
+- 点击“选择文件”选择一个 PDF
+- 点击“选择输出”指定生成文件
+- 可切换 `image` 或 `basic` 模式
+- `image` 模式下可调 `DPI`、`质量`、`最长边`，也可勾选灰度
+- “扫描件推荐”会直接填入一组适合扫描件的常用参数
+
+如果你更习惯直接运行 PowerShell 脚本，也可以执行：
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -STA -File .\merge-pdf-gui.ps1
+powershell.exe -NoProfile -ExecutionPolicy Bypass -STA -File .\compress-pdf-gui.ps1
+```
 
 ## 注意事项
 
